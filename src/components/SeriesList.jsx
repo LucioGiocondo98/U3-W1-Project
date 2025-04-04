@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
+import "./style.css";
 
 class SeriesList extends Component {
   state = {
     movies: [],
+    loading: true,
   };
 
   componentDidMount() {
@@ -22,10 +24,12 @@ class SeriesList extends Component {
       .then((data) => {
         this.setState({
           movies: data.Search.slice(0, 6),
+          loading: false,
         });
       })
       .catch((error) => {
         console.error("Errore durante la fetch:", error);
+        this.setState({ loading: false });
       });
   };
 
@@ -35,22 +39,32 @@ class SeriesList extends Component {
         <Row>
           <Col>
             <h2 className="text-light">Series</h2>
-            <Row className="g-3">
-              {this.state.movies.map((movie) => (
-                <Col xs={6} md={4} lg={2} key={movie.imdbID} className="mb-4">
-                  <Card style={{ height: "270px" }} className="border-0">
-                    <Card.Img
-                      src={movie.Poster}
-                      alt={movie.Title}
-                      style={{
-                        height: "100%",
-                        width: "100%",
-                      }}
-                    />
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+
+            {this.state.loading ? (
+              <div className="d-flex justify-content-center">
+                <Spinner animation="border" variant="light" />
+              </div>
+            ) : (
+              <Row className="g-3 mt-3">
+                {this.state.movies.map((movie) => (
+                  <Col xs={6} md={4} lg={2} key={movie.imdbID} className="mb-4">
+                    <Card
+                      style={{ height: "270px" }}
+                      className="border-0 card-hover"
+                    >
+                      <Card.Img
+                        src={movie.Poster}
+                        alt={movie.Title}
+                        style={{
+                          height: "100%",
+                          width: "100%",
+                        }}
+                      />
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            )}
           </Col>
         </Row>
       </Container>

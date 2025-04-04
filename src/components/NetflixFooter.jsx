@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const NetflixFooter = () => {
   return (
-    <Container className="mt-5 border-top border-1 border-light">
+    <Container className="mt-3">
       <Row className="justify-content-center">
         <Col xs={12} sm={10} md={8} lg={6}>
           <Row className="justify-content-center mb-3">
