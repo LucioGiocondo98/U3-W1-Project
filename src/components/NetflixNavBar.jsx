@@ -11,7 +11,7 @@ import {
 
 const NetflixNavbar = () => {
   return (
-    <BootstrapNavbar bg="dark" variant="dark" expand="lg" sticky="top">
+    <BootstrapNavbar variant="dark" expand="lg" sticky="top">
       <Container fluid className="w-100">
         <BootstrapNavbar.Brand href="#">
           <Image

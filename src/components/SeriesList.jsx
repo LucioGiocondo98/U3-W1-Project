@@ -33,12 +33,12 @@ class SeriesList extends Component {
     return (
       <Container fluid className="mt-3">
         <Row>
-          <Col className="bg-dark">
+          <Col>
             <h2 className="text-light">Series</h2>
             <Row className="g-3">
               {this.state.movies.map((movie) => (
                 <Col xs={6} md={4} lg={2} key={movie.imdbID} className="mb-4">
-                  <Card style={{ height: "270px" }}>
+                  <Card style={{ height: "270px" }} className="border-0">
                     <Card.Img
                       src={movie.Poster}
                       alt={movie.Title}
