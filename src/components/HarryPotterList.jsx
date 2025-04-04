@@ -1,5 +1,0 @@
-const HarryPotterList = function(){
-    return(
-        
-    )
-}
