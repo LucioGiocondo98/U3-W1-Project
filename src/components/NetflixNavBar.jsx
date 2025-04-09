@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-
+import { Link } from "react-router-dom";
 import React from "react";
 import {
   Navbar as BootstrapNavbar,
@@ -28,7 +28,9 @@ const NetflixNavbar = () => {
         <BootstrapNavbar.Collapse id="navbar-toggle">
           <Nav className="me-auto">
             <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link href="#">TV Shows</Nav.Link>
+            <Link className="nav-link" to="/TVShows">
+              TV Shows
+            </Link>
             <Nav.Link href="#">Movies</Nav.Link>
             <Nav.Link href="#">Recently Added</Nav.Link>
             <Nav.Link href="#">My List</Nav.Link>

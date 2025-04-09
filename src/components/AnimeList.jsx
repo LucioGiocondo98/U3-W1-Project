@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 class AnimeList extends Component {
   state = {
@@ -51,19 +52,24 @@ class AnimeList extends Component {
               <Row className="g-3 mt-3">
                 {this.state.movies.map((movie) => (
                   <Col xs={6} md={4} lg={2} key={movie.imdbID} className="mb-4">
-                    <Card
-                      style={{ height: "270px" }}
-                      className="border-0 card-hover"
+                    <Link
+                      to={`/movie-details/${movie.imdbID}`}
+                      className="text-decoration-none"
                     >
-                      <Card.Img
-                        src={movie.Poster}
-                        alt={movie.Title}
-                        style={{
-                          height: "100%",
-                          width: "100%",
-                        }}
-                      />
-                    </Card>
+                      <Card
+                        style={{ height: "270px" }}
+                        className="border-0 card-hover"
+                      >
+                        <Card.Img
+                          src={movie.Poster}
+                          alt={movie.Title}
+                          style={{
+                            height: "100%",
+                            width: "100%",
+                          }}
+                        />
+                      </Card>
+                    </Link>
                   </Col>
                 ))}
               </Row>
