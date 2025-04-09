@@ -10,7 +10,13 @@ const MovieDetails = () => {
 
   useEffect(() => {
     fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${movieId}`)
-      .then((res) => res.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Errore nella risposta dell'API");
+        }
+      })
       .then((data) => {
         setMovie(data);
         console.log(data);

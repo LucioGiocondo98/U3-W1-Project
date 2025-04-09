@@ -27,7 +27,9 @@ const NetflixNavbar = () => {
 
         <BootstrapNavbar.Collapse id="navbar-toggle">
           <Nav className="me-auto">
-            <Nav.Link href="#">Home</Nav.Link>
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
             <Link className="nav-link" to="/TVShows">
               TV Shows
             </Link>
